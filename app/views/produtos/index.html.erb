@@ -1,60 +1,51 @@
-<html>
-<%= nav_bar brand: "Loja", brand_link: root_url %>
-<div class="container">
-
-    <body>
-        <table class="table table-bordered table-hover">
-            <thread>
-                <tr>
-                    <td>Nome</td>
-                    <td>Descrição</td>
-                    <td>Preço</td>
-                    <td>Quantidade</td>
-                </tr>
-                </thead>
-                <tbody>
-                    <% @produto.each do |produto| %>
-                    <tr>
-                        <td><%= produto.nome %></td>
-                        <td><%= produto.descricao %></td>
-                        <td><%= produto.preco %></td>
-                        <td><%= produto.quantidade %></td>
-                    </tr>
-                    <% end %>
+<table class="table table-bordered table-hover">
+    <thread>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+            <td colspan = "1">
+        </tr>
+        </thead>
+        <tbody>
+            <% @produto.each do |produto| %>
+            <tr>
+                <td><%= produto.nome %></td>
+                <td><%= produto.descricao %></td>
+                <td><%= produto.preco %></td>
+                <td><%= produto.quantidade %></td>
+                <td><%= button_to "Remover", produto, method: :delete, class:"btn btn-danger" , data: {confirm: "Tem Certeza que deseja deletar o produto #{produto.nome}"}%></td>
+            </tr>
+            <% end %>
 
 
 
 
-                </tbody>
-        </table>
-        <div class="alert alert-success" role="alert">
-                <h3 class="alert-heading">Produto do  dia</h3>
-            </div>
-            <table class="table table-bordered table-hover">
-            <thread>
-                <tr>
-                    <td>Nome</td>
-                    <td>Descrição</td>
-                    <td>Preço</td>
-                    <td>Quantidade</td>
-                </tr>
-                </thead>
-                <tbody>
-                    <% @produtoBarato.each do |produto| %>
-                    <tr>
-                        <td><%= produto.nome %></td>
-                        <td><%= produto.descricao %></td>
-                        <td><%= produto.preco %></td>
-                        <td><%= produto.quantidade %></td>
-                    </tr>
-                    <% end %>
-                
-
-
-
-                </tbody>
-        </table>
-    </body>
-</div>
-
-</html>
+        </tbody>
+</table>
+<div class="alert alert-success" role="alert">
+        <h3 class="alert-heading">Produto do  dia</h3>
+    </div>
+    <table class="table table-bordered table-hover">
+    <thread>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+        </tr>
+        </thead>
+        <tbody>
+            <% @produtoBarato.each do |produto| %>
+            <tr>
+                <td><%= produto.nome %></td>
+                <td><%= produto.descricao %></td>
+                <td><%= produto.preco %></td>
+                <td><%= produto.quantidade %></td>
+            </tr>
+            <% end %>
+        
+        </tbody>
+</table>
+ 
